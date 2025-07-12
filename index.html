@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fatfuk Mobility</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
+      color: #222;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .layout {
+      display: flex;
+    }
+    .sidebar {
+      width: 325px;
+      background: #fff;
+      padding: 1.5rem;
+      border-right: 1px solid #ccc;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+    .main {
+      margin-left: 325px;
+      flex-grow: 1;
+      padding: 2rem;
+      max-width: 1200px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 3rem 0 2rem 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card span {
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .modal-content p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function openModal(title, img, desc) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalImg").src = img;
+      document.getElementById("modalDesc").innerText = desc;
+      document.getElementById("exerciseModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("exerciseModal").style.display = "none";
+    }
+  </script>
+</head>
+<body>
+  <header>Fatfuk Mobility</header>
+  <div class="layout">
+    <div class="sidebar">
+      <h3>Not So Gentle Reminder</h3>
+      <p>If you sit all day, skip warmups, and treat stretching like it’s optional, your body’s gonna fold in on itself like Quasimodo at a desk job.</p>
+      <p>This routine is built for anyone who’s tight, stiff, sore, or just plain tired of moving like a creaky folding chair. No fluff, no yoga-nonsense — just the movements you actually need to undo the damage.</p>
+      <p>Do these consistently and you’ll feel looser, stronger in weird positions, and less like a fatfuck statue locked in 90° angles. Train smart. Move well. Stay human.</p>
+    </div>
+    <div class="main">
+<h2>Shoulders & Upper Body</h2>
+<div class='grid'>
+<div class="card" onclick="openModal('Banded Shoulder Dislocates', 'images/shoulder-dislocate.jpeg', `Focus on keeping core engaged — no pelvic tilt welcome here. Feel the stretch in the pecs.`)">
+  <img src="images/shoulder-dislocate.jpeg" alt="Banded Shoulder Dislocates"><span>Banded Shoulder Dislocates</span>
+</div>
+<div class="card" onclick="openModal('Banded Straight Arm Press', 'images/Banded_shoulder_hold.jpg', `First engage the shoulder by pulling the band apart. Then keep tension in those boulders and press slowly out.`)">
+  <img src="images/Banded_shoulder_hold.jpg" alt="Banded Straight Arm Press"><span>Banded Straight Arm Press</span>
+</div>
+</div>
+<hr />
+<h2>Back & Spine</h2>
+<div class='grid'>
+<div class="card" onclick="openModal('Cat-Cow', 'images/Cat_Cow.webp', `Cat = Look up, depress shoulders. Cow = Look down, push your shoulder blades away. Feel your grindy ass scapula open up.`)">
+  <img src="images/Cat_Cow.webp" alt="Cat-Cow"><span>Cat-Cow</span>
+</div>
+<div class="card" onclick="openModal('Prayer Stretch', 'images/Prayer_Lat_Stretch.jpg', `Push your forehead down. Relax the lats and shoulders. Back arching is actually encouraged here.`)">
+  <img src="images/Prayer_Lat_Stretch.jpg" alt="Prayer Stretch"><span>Prayer Stretch</span>
+</div>
+<div class="card" onclick="openModal('Cobra Pose', 'images/Cobra_pose.webp', `Chest to sky, twist side to side and try to wake up your obliques from the grave.`)">
+  <img src="images/Cobra_pose.webp" alt="Cobra Pose"><span>Cobra Pose</span>
+</div>
+<div class="card" onclick="openModal('Open Book Stretch', 'images/Open_Book.jpeg', `Pin that top knee down with your hand. Rotate like you mean it. Mid-back and glutes are the target.`)">
+  <img src="images/Open_Book.jpeg" alt="Open Book Stretch"><span>Open Book Stretch</span>
+</div>
+<div class="card" onclick="openModal('Dead Hang', 'images/Dead_hang.webp', `Just hang. Gravity will take care of the rest.`)">
+  <img src="images/Dead_hang.webp" alt="Dead Hang"><span>Dead Hang</span>
+</div>
+</div>
+<hr />
+<h2>Hips & Legs</h2>
+<div class='grid'>
+<div class="card" onclick="openModal('90/90 Hip Switch', 'images/90_90.png', `Them cheeks gotta clench the floor. No ass lifting permitted. Feel the disgusting pinching in the depths of your hips and embrace it.`)">
+  <img src="images/90_90.png" alt="90/90 Hip Switch"><span>90/90 Hip Switch</span>
+</div>
+<div class="card" onclick="openModal('Couch Stretch', 'images/couch_stretch.webp', `Chest high. Push your hip forward like you're trying to hip thrust the wall.`)">
+  <img src="images/couch_stretch.webp" alt="Couch Stretch"><span>Couch Stretch</span>
+</div>
+<div class="card" onclick="openModal('Elephant Walks', 'images/Elephant_Walks.jpg', `Flex the quad on the bent knee. Hold for 5 seconds, then switch legs. Get comfy being uncomfortable.`)">
+  <img src="images/Elephant_Walks.jpg" alt="Elephant Walks"><span>Elephant Walks</span>
+</div>
+<div class="card" onclick="openModal('Elevated Pigeon Stretch', 'images/Elevated_Pidgeon.jpg', `Knee at 90 degrees, lean onto it like your hip joint owes you money.`)">
+  <img src="images/Elevated_Pidgeon.jpg" alt="Elevated Pigeon Stretch"><span>Elevated Pigeon Stretch</span>
+</div>
+<div class="card" onclick="openModal('Butterfly Pulses', 'images/Butterfly_Pulse.jpg', `Dumbbells are your friend. Plop 'em on your knees and bounce your way to open hips.`)">
+  <img src="images/Butterfly_Pulse.jpg" alt="Butterfly Pulses"><span>Butterfly Pulses</span>
+</div>
+<div class="card" onclick="openModal('Frog Pose', 'images/Frog_pose.jpeg', `Get real slutty with it. Knees as far apart as possible. Bounce back and forth like your groin has no shame.`)">
+  <img src="images/Frog_pose.jpeg" alt="Frog Pose"><span>Frog Pose</span>
+</div>
+<div class="card" onclick="openModal('Hip CARs', 'images/Hip_CARs.jpg', `Stick to the extreme ends of your range. This should feel uncomfortable and pinchy the whole way through.`)">
+  <img src="images/Hip_CARs.jpg" alt="Hip CARs"><span>Hip CARs</span>
+</div>
+<div class="card" onclick="openModal('Active Hip Flexor Lift Over Block', 'images/Hip_flexor_block_lıft.jpg', `I know you're trying to cheat by leaning back. Don’t. Chest up, hands behind your back or hugging the opposite knee. Suffer properly.`)">
+  <img src="images/Hip_flexor_block_lıft.jpg" alt="Active Hip Flexor Lift Over Block"><span>Active Hip Flexor Lift Over Block</span>
+</div>
+<div class="card" onclick="openModal('Monster Walks', 'images/monster-walk.jpg', `Tension stays in the glutes the whole time. Mind-muscle connection like you’re sculpting statues.`)">
+  <img src="images/monster-walk.jpg" alt="Monster Walks"><span>Monster Walks</span>
+</div>
+<div class="card" onclick="openModal('Greatest Stretch Ever', 'images/Greatest_Stretch.jpg', `World’s greatest stretch for a reason. Hit the hip flexor, hamstring, and spine all in one.`)">
+  <img src="images/Greatest_Stretch.jpg" alt="Greatest Stretch Ever"><span>Greatest Stretch Ever</span>
+</div>
+<div class="card" onclick="openModal('Seated Pancake', 'images/Seated_pancake.jpg', `My personal least favorite. Groin mobility will humble your soul. Just wiggle and try not to cry.`)">
+  <img src="images/Seated_pancake.jpg" alt="Seated Pancake"><span>Seated Pancake</span>
+</div>
+<div class="card" onclick="openModal('Horse Stance Hold', 'images/horse_pose.jpg', `Channel your inner Tai Chi monk. Knees out, tension in the groin, look angry on purpose.`)">
+  <img src="images/horse_pose.jpg" alt="Horse Stance Hold"><span>Horse Stance Hold</span>
+</div>
+<div class="card" onclick="openModal('Cossack Squat', 'images/Cossack_Squat.webp', `Low side-to-side squat. Hips, hamstrings, calves, pride — all stretched.`)">
+  <img src="images/Cossack_Squat.webp" alt="Cossack Squat"><span>Cossack Squat</span>
+</div>
+<div class="card" onclick="openModal('Glute Plane Opener', 'images/glute_plane_opener.jpg', `Stand on one leg like a fancy flamingo. Hinge forward, then rotate open using your glute. Like a plane... with attitude.`)">
+  <img src="images/glute_plane_opener.jpg" alt="Glute Plane Opener"><span>Glute Plane Opener</span>
+</div>
+</div>
+<hr />
+<h2>Feet & Calves</h2>
+<div class='grid'>
+<div class="card" onclick="openModal('Knee-to-Wall Dorsiflexion Stretch', 'images/Ankle_Dorsilexion.webp', `Toes one fist away from the wall or box. Hold your heel down like it owes you rent.`)">
+  <img src="images/Ankle_Dorsilexion.webp" alt="Knee-to-Wall Dorsiflexion Stretch"><span>Knee-to-Wall Dorsiflexion Stretch</span>
+</div>
+<div class="card" onclick="openModal('Plantar Fascia Rolling', 'images/plantar-fascia-rolling.jpg', `Roll out the knots in your feet. Cry if needed. It helps.`)">
+  <img src="images/plantar-fascia-rolling.jpg" alt="Plantar Fascia Rolling"><span>Plantar Fascia Rolling</span>
+</div>
+<div class="card" onclick="openModal('Side-to-Side Squat Pulses', 'images/Side_to_side_shift_squat.jpg', `Heels on plates if needed. Shift weight side to side and feel the calves scream like banshees.`)">
+  <img src="images/Side_to_side_shift_squat.jpg" alt="Side-to-Side Squat Pulses"><span>Side-to-Side Squat Pulses</span>
+</div>
+<div class="card" onclick="openModal('Seiza Pose', 'images/Seiza_Pose.jpg', `Bloodflow to your cranky knees. Lean back for bonus quad death (or some spicy reverse nordics).`)">
+  <img src="images/Seiza_Pose.jpg" alt="Seiza Pose"><span>Seiza Pose</span>
+</div>
+</div>
+<hr />
+
+    </div>
+  </div>
+  <div id="exerciseModal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImg" src="" alt="exercise">
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+</body>
+</html>
