@@ -1,358 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fatfuk Mobility</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
-    .sidebar {
-      width: 280px;
-      background-color: #000;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .sidebar h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .sidebar p {
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    .main {
-      margin-left: 300px;
-      padding: 30px;
-    }
-    h3 {
-      margin-top: 40px;
-      border-bottom: 1px solid #444;
-      padding-bottom: 8px;
-    }
-    .exercise {
-      margin-bottom: 40px;
-    }
-    .exercise img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      border: 2px solid #333;
-    }
-    .exercise img:hover {
-      opacity: 0.85;
-    }
-    .exercise-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .exercise-desc {
-      font-size: 14px;
-      color: #aaa;
-      margin-top: 4px;
-      max-width: 420px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .modal:target {
-      display: flex;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Fatfuk Mobility</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+.header {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+.flex {
+  display: flex;
+}
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  width: 260px;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+.main {
+  flex-grow: 1;
+  padding: 20px;
+}
+h2 {
+  margin-top: 40px;
+  color: #333;
+}
+.exercise {
+  display: inline-block;
+  width: 300px;
+  margin: 10px;
+  vertical-align: top;
+  text-align: center;
+}
+.exercise img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.exercise a {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+.collapser {
+  display: none;
+}
+@media (max-width: 768px) {
+  .collapser {
+    display: block;
+    background: #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  #toggle:checked ~ .sidebar {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+  }
+}
+</style>
 </head>
 <body>
+<div class="header">Fatfuk Mobility</div>
+<input type="checkbox" id="toggle" class="collapser">
+<label for="toggle" class="collapser">☰ Not So Gentle Reminder</label>
+<div class="flex">
   <div class="sidebar">
-    <h2>Fatfuk Mobility</h2>
-    <p>Let’s keep it real. If you sit all day, skip warmups, and treat stretching like it’s optional, your body’s gonna fold in on itself like Quasimodo at a desk job.</p>
+    <h3>Not So Gentle Reminder</h3>
+    <p>If you sit all day, skip warmups, and treat stretching like it’s optional, your body’s gonna fold in on itself like Quasimodo at a desk job.</p>
     <p>This routine is built for anyone who’s tight, stiff, sore, or just plain tired of moving like a creaky folding chair. No fluff, no yoga-nonsense — just the movements you actually need to undo the damage.</p>
     <p>Do these consistently and you’ll feel looser, stronger in weird positions, and less like a fatfuck statue locked in 90° angles. Train smart. Move well. Stay human.</p>
   </div>
   <div class="main">
-<h3>Shoulders & Upper Body</h3>
+<h2>Shoulders & Upper Body</h2>
 
-        <div class="exercise">
-          <a href="#shoulder dislocate"><img src="images/shoulder-dislocate.jpeg" alt="Shoulder Dislocate"></a>
-          <div class="exercise-name">Shoulder Dislocate</div>
-          <div class="exercise-desc">Band rotation front to back with locked arms. Opens chest and shoulders.</div>
-        </div>
-        <div id="shoulder dislocate" class="modal">
-          <a href="#"><img src="images/shoulder-dislocate.jpeg" alt="Shoulder Dislocate"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#banded shoulder hold"><img src="images/Banded_shoulder_hold.jpg" alt="Banded Shoulder Hold"></a>
-          <div class="exercise-name">Banded Shoulder Hold</div>
-          <div class="exercise-desc">Straight-arm isometric chest press with a resistance band.</div>
-        </div>
-        <div id="banded shoulder hold" class="modal">
-          <a href="#"><img src="images/Banded_shoulder_hold.jpg" alt="Banded Shoulder Hold"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#prayer lat stretch"><img src="images/Prayer_Lat_Stretch.jpg" alt="Prayer Lat Stretch"></a>
-          <div class="exercise-name">Prayer Lat Stretch</div>
-          <div class="exercise-desc">Child’s pose variation with arms reaching to sides. Targets lats and T-spine.</div>
-        </div>
-        <div id="prayer lat stretch" class="modal">
-          <a href="#"><img src="images/Prayer_Lat_Stretch.jpg" alt="Prayer Lat Stretch"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#shoulder external rotation block"><img src="images/Shoulder_external_rotation_block.jpg" alt="Shoulder External Rotation Block"></a>
-          <div class="exercise-name">Shoulder External Rotation Block</div>
-          <div class="exercise-desc">Face-down external shoulder rotation with hand on block.</div>
-        </div>
-        <div id="shoulder external rotation block" class="modal">
-          <a href="#"><img src="images/Shoulder_external_rotation_block.jpg" alt="Shoulder External Rotation Block"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#prone y raise"><img src="images/Prone_Y_Raise.jpg" alt="Prone Y Raise"></a>
-          <div class="exercise-name">Prone Y Raise</div>
-          <div class="exercise-desc">Lying Y-shaped arm raises. Strengthens lower traps and scapular control.</div>
-        </div>
-        <div id="prone y raise" class="modal">
-          <a href="#"><img src="images/Prone_Y_Raise.jpg" alt="Prone Y Raise"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#prone arm sweep"><img src="images/Prone_Arm_Sweep.gif" alt="Prone Arm Sweep"></a>
-          <div class="exercise-name">Prone Arm Sweep</div>
-          <div class="exercise-desc">Lift, rotate, and sweep arm behind the back. Promotes scapular mobility.</div>
-        </div>
-        <div id="prone arm sweep" class="modal">
-          <a href="#"><img src="images/Prone_Arm_Sweep.gif" alt="Prone Arm Sweep"></a>
-        </div>
-        <h3>Back & Spine</h3>
+            <div class="exercise">
+              <a href="banded_shoulder_dislocates.html">
+                <img src="images/shoulder-dislocate.jpeg" alt="Banded Shoulder Dislocates">
+                <span>Banded Shoulder Dislocates</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="banded_straight_arm_press.html">
+                <img src="images/Banded_shoulder_hold.jpg" alt="Banded Straight Arm Press">
+                <span>Banded Straight Arm Press</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="banded_rotational_pec_opener.html">
+                <img src="images/Prayer_Lat_Stretch.jpg" alt="Banded Rotational Pec Opener">
+                <span>Banded Rotational Pec Opener</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="prone_shoulder_external_rotation_on_block.html">
+                <img src="images/Shoulder_external_rotation_block.jpg" alt="Prone Shoulder External Rotation on Block">
+                <span>Prone Shoulder External Rotation on Block</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="prone_y_raise.html">
+                <img src="images/Prone_Y_Raise.jpg" alt="Prone Y Raise">
+                <span>Prone Y Raise</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="prone_arm_sweep.html">
+                <img src="images/Prone_Arm_Sweep.gif" alt="Prone Arm Sweep">
+                <span>Prone Arm Sweep</span>
+              </a>
+            </div>
+            <h2>Back & Spine</h2>
 
-        <div class="exercise">
-          <a href="#cat cow"><img src="images/Cat_Cow.webp" alt="Cat Cow"></a>
-          <div class="exercise-name">Cat Cow</div>
-          <div class="exercise-desc">Spinal flexion/extension on all fours. Improves back articulation.</div>
-        </div>
-        <div id="cat cow" class="modal">
-          <a href="#"><img src="images/Cat_Cow.webp" alt="Cat Cow"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#thread the needle"><img src="images/Thread_the_needle.webp" alt="Thread The Needle"></a>
-          <div class="exercise-name">Thread The Needle</div>
-          <div class="exercise-desc">Reach-under twist stretch. Opens thoracic spine and lats.</div>
-        </div>
-        <div id="thread the needle" class="modal">
-          <a href="#"><img src="images/Thread_the_needle.webp" alt="Thread The Needle"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#cobra pose"><img src="images/Cobra_pose.webp" alt="Cobra Pose"></a>
-          <div class="exercise-name">Cobra Pose</div>
-          <div class="exercise-desc">Prone press-up. Opens spine and hip flexors.</div>
-        </div>
-        <div id="cobra pose" class="modal">
-          <a href="#"><img src="images/Cobra_pose.webp" alt="Cobra Pose"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#open book"><img src="images/Open_Book.jpeg" alt="Open Book"></a>
-          <div class="exercise-name">Open Book</div>
-          <div class="exercise-desc">Side-lying twist with knee across body. Mobilizes T-spine.</div>
-        </div>
-        <div id="open book" class="modal">
-          <a href="#"><img src="images/Open_Book.jpeg" alt="Open Book"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#dead hang"><img src="images/Dead_hang.webp" alt="Dead Hang"></a>
-          <div class="exercise-name">Dead Hang</div>
-          <div class="exercise-desc">Passive hang from a bar. Decompresses spine and shoulders.</div>
-        </div>
-        <div id="dead hang" class="modal">
-          <a href="#"><img src="images/Dead_hang.webp" alt="Dead Hang"></a>
-        </div>
-        <h3>Hips & Legs</h3>
+            <div class="exercise">
+              <a href="cat-cow.html">
+                <img src="images/Cat_Cow.webp" alt="Cat-Cow">
+                <span>Cat-Cow</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="prayer_stretch.html">
+                <img src="images/Thread_the_needle.webp" alt="Prayer Stretch">
+                <span>Prayer Stretch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="cobra_pose.html">
+                <img src="images/Cobra_pose.webp" alt="Cobra Pose">
+                <span>Cobra Pose</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="open_book_stretch.html">
+                <img src="images/Open_Book.jpeg" alt="Open Book Stretch">
+                <span>Open Book Stretch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="dead_hang.html">
+                <img src="images/Dead_hang.webp" alt="Dead Hang">
+                <span>Dead Hang</span>
+              </a>
+            </div>
+            <h2>Hips & Legs</h2>
 
-        <div class="exercise">
-          <a href="#90 90"><img src="images/90_90.png" alt="90 90"></a>
-          <div class="exercise-name">90 90</div>
-          <div class="exercise-desc">Hip internal/external rotation drill. Improves joint control.</div>
-        </div>
-        <div id="90 90" class="modal">
-          <a href="#"><img src="images/90_90.png" alt="90 90"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#couch stretch"><img src="images/couch_stretch.webp" alt="Couch Stretch"></a>
-          <div class="exercise-name">Couch Stretch</div>
-          <div class="exercise-desc">Quad and hip flexor stretch with back foot elevated.</div>
-        </div>
-        <div id="couch stretch" class="modal">
-          <a href="#"><img src="images/couch_stretch.webp" alt="Couch Stretch"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#elephant walks"><img src="images/Elephant_Walks.jpg" alt="Elephant Walks"></a>
-          <div class="exercise-name">Elephant Walks</div>
-          <div class="exercise-desc">Alternating hamstring stretch. Improves posterior chain mobility.</div>
-        </div>
-        <div id="elephant walks" class="modal">
-          <a href="#"><img src="images/Elephant_Walks.jpg" alt="Elephant Walks"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#elevated pidgeon"><img src="images/Elevated_Pidgeon.jpg" alt="Elevated Pidgeon"></a>
-          <div class="exercise-name">Elevated Pidgeon</div>
-          <div class="exercise-desc">Glute and piriformis stretch using a raised surface.</div>
-        </div>
-        <div id="elevated pidgeon" class="modal">
-          <a href="#"><img src="images/Elevated_Pidgeon.jpg" alt="Elevated Pidgeon"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#butterfly pulse"><img src="images/Butterfly_Pulse.jpg" alt="Butterfly Pulse"></a>
-          <div class="exercise-name">Butterfly Pulse</div>
-          <div class="exercise-desc">Groin opener using bouncing knees. Targets inner hips.</div>
-        </div>
-        <div id="butterfly pulse" class="modal">
-          <a href="#"><img src="images/Butterfly_Pulse.jpg" alt="Butterfly Pulse"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#frog pose"><img src="images/Frog_pose.jpeg" alt="Frog Pose"></a>
-          <div class="exercise-name">Frog Pose</div>
-          <div class="exercise-desc">Deep groin stretch with wide knees on the floor.</div>
-        </div>
-        <div id="frog pose" class="modal">
-          <a href="#"><img src="images/Frog_pose.jpeg" alt="Frog Pose"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#hip cars"><img src="images/Hip_CARs.jpg" alt="Hip Cars"></a>
-          <div class="exercise-name">Hip Cars</div>
-          <div class="exercise-desc">Controlled hip rotations. Builds joint strength and control.</div>
-        </div>
-        <div id="hip cars" class="modal">
-          <a href="#"><img src="images/Hip_CARs.jpg" alt="Hip Cars"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#hip flexor block lıft"><img src="images/Hip_flexor_block_lıft.jpg" alt="Hip Flexor Block Lıft"></a>
-          <div class="exercise-name">Hip Flexor Block Lıft</div>
-          <div class="exercise-desc">Seated hip lift over block. Strengthens hip flexors.</div>
-        </div>
-        <div id="hip flexor block lıft" class="modal">
-          <a href="#"><img src="images/Hip_flexor_block_lıft.jpg" alt="Hip Flexor Block Lıft"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#monster walk"><img src="images/monster-walk.jpg" alt="Monster Walk"></a>
-          <div class="exercise-name">Monster Walk</div>
-          <div class="exercise-desc">Banded side steps. Activates glute medius.</div>
-        </div>
-        <div id="monster walk" class="modal">
-          <a href="#"><img src="images/monster-walk.jpg" alt="Monster Walk"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#greatest stretch"><img src="images/Greatest_Stretch.jpg" alt="Greatest Stretch"></a>
-          <div class="exercise-name">Greatest Stretch</div>
-          <div class="exercise-desc">Deep lunge with T-spine twist and elbow drop.</div>
-        </div>
-        <div id="greatest stretch" class="modal">
-          <a href="#"><img src="images/Greatest_Stretch.jpg" alt="Greatest Stretch"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#seated pancake"><img src="images/Seated_pancake.jpg" alt="Seated Pancake"></a>
-          <div class="exercise-name">Seated Pancake</div>
-          <div class="exercise-desc">Wide-leg seated fold. Stretches hamstrings and adductors.</div>
-        </div>
-        <div id="seated pancake" class="modal">
-          <a href="#"><img src="images/Seated_pancake.jpg" alt="Seated Pancake"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#horse pose"><img src="images/horse_pose.jpg" alt="Horse Pose"></a>
-          <div class="exercise-name">Horse Pose</div>
-          <div class="exercise-desc">Isometric wide squat. Builds adductor strength.</div>
-        </div>
-        <div id="horse pose" class="modal">
-          <a href="#"><img src="images/horse_pose.jpg" alt="Horse Pose"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#cossack squat"><img src="images/Cossack_Squat.webp" alt="Cossack Squat"></a>
-          <div class="exercise-name">Cossack Squat</div>
-          <div class="exercise-desc">Side-to-side deep squats. Targets hips, hamstrings, and ankles.</div>
-        </div>
-        <div id="cossack squat" class="modal">
-          <a href="#"><img src="images/Cossack_Squat.webp" alt="Cossack Squat"></a>
-        </div>
-        <h3>Feet & Calves</h3>
+            <div class="exercise">
+              <a href="90/90_hip_switch.html">
+                <img src="images/90_90.png" alt="90/90 Hip Switch">
+                <span>90/90 Hip Switch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="couch_stretch.html">
+                <img src="images/couch_stretch.webp" alt="Couch Stretch">
+                <span>Couch Stretch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="elephant_walks.html">
+                <img src="images/Elephant_Walks.jpg" alt="Elephant Walks">
+                <span>Elephant Walks</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="elevated_pigeon_stretch.html">
+                <img src="images/Elevated_Pidgeon.jpg" alt="Elevated Pigeon Stretch">
+                <span>Elevated Pigeon Stretch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="butterfly_pulses.html">
+                <img src="images/Butterfly_Pulse.jpg" alt="Butterfly Pulses">
+                <span>Butterfly Pulses</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="frog_pose.html">
+                <img src="images/Frog_pose.jpeg" alt="Frog Pose">
+                <span>Frog Pose</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="hip_cars.html">
+                <img src="images/Hip_CARs.jpg" alt="Hip CARs">
+                <span>Hip CARs</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="active_hip_flexor_lift_over_block.html">
+                <img src="images/Hip_flexor_block_lıft.jpg" alt="Active Hip Flexor Lift Over Block">
+                <span>Active Hip Flexor Lift Over Block</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="monster_walks.html">
+                <img src="images/monster-walk.jpg" alt="Monster Walks">
+                <span>Monster Walks</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="greatest_stretch_ever.html">
+                <img src="images/Greatest_Stretch.jpg" alt="Greatest Stretch Ever">
+                <span>Greatest Stretch Ever</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="seated_pancake.html">
+                <img src="images/Seated_pancake.jpg" alt="Seated Pancake">
+                <span>Seated Pancake</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="horse_stance_hold.html">
+                <img src="images/horse_pose.jpg" alt="Horse Stance Hold">
+                <span>Horse Stance Hold</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="cossack_squat.html">
+                <img src="images/Cossack_Squat.webp" alt="Cossack Squat">
+                <span>Cossack Squat</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="glute_plane_opener.html">
+                <img src="images/glute_plane_opener.jpg" alt="Glute Plane Opener">
+                <span>Glute Plane Opener</span>
+              </a>
+            </div>
+            <h2>Feet & Calves</h2>
 
-        <div class="exercise">
-          <a href="#ankle dorsilexion"><img src="images/Ankle_Dorsilexion.webp" alt="Ankle Dorsilexion"></a>
-          <div class="exercise-name">Ankle Dorsilexion</div>
-          <div class="exercise-desc">Knee-to-wall stretch. Improves ankle mobility.</div>
-        </div>
-        <div id="ankle dorsilexion" class="modal">
-          <a href="#"><img src="images/Ankle_Dorsilexion.webp" alt="Ankle Dorsilexion"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#plantar fascia rolling"><img src="images/plantar-fascia-rolling.jpg" alt="Plantar Fascia Rolling"></a>
-          <div class="exercise-name">Plantar Fascia Rolling</div>
-          <div class="exercise-desc">Roll bottom of foot with ball. Loosens foot fascia.</div>
-        </div>
-        <div id="plantar fascia rolling" class="modal">
-          <a href="#"><img src="images/plantar-fascia-rolling.jpg" alt="Plantar Fascia Rolling"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#side to side shift squat"><img src="images/Side_to_side_shift_squat.jpg" alt="Side To Side Shift Squat"></a>
-          <div class="exercise-name">Side To Side Shift Squat</div>
-          <div class="exercise-desc">Deep squat weight shifts. Opens hips and calves.</div>
-        </div>
-        <div id="side to side shift squat" class="modal">
-          <a href="#"><img src="images/Side_to_side_shift_squat.jpg" alt="Side To Side Shift Squat"></a>
-        </div>
-        
-        <div class="exercise">
-          <a href="#seiza pose"><img src="images/Seiza_Pose.jpg" alt="Seiza Pose"></a>
-          <div class="exercise-name">Seiza Pose</div>
-          <div class="exercise-desc">Sit on heels. Stretches quads and ankles.</div>
-        </div>
-        <div id="seiza pose" class="modal">
-          <a href="#"><img src="images/Seiza_Pose.jpg" alt="Seiza Pose"></a>
-        </div>
-        
-  </div>
-</body>
-</html>
+            <div class="exercise">
+              <a href="knee-to-wall_dorsiflexion_stretch.html">
+                <img src="images/Ankle_Dorsilexion.webp" alt="Knee-to-Wall Dorsiflexion Stretch">
+                <span>Knee-to-Wall Dorsiflexion Stretch</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="plantar_fascia_rolling.html">
+                <img src="images/plantar-fascia-rolling.jpg" alt="Plantar Fascia Rolling">
+                <span>Plantar Fascia Rolling</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="side-to-side_squat_pulses.html">
+                <img src="images/Side_to_side_shift_squat.jpg" alt="Side-to-Side Squat Pulses">
+                <span>Side-to-Side Squat Pulses</span>
+              </a>
+            </div>
+            
+            <div class="exercise">
+              <a href="seiza_pose.html">
+                <img src="images/Seiza_Pose.jpg" alt="Seiza Pose">
+                <span>Seiza Pose</span>
+              </a>
+            </div>
+            </div></div></body></html>
